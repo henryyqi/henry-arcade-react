@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Pac-Man</title>
+        <link rel="stylesheet" href="./pacman_styles.css">
+    </head>
+    <body>
+        <a href="../index.html">Home</a>
+        <!-- <h1>Pac-Man</h1> -->
+
+        <div class="full-container">
+            <div class="menu-container">
+                <div class="banner"></div>
+                    <h2>Pac-Man</h2>
+                    <div id="map-number" class="banner">Map: 1</div>
+                    <p>Use arrow keys to move Pac-Man</p>
+                    <p>Eat all the dots while avoiding the ghosts! Get 300 points to win!</p>
+                <div class="button-container">
+                    <button id="start-button" class="start-button">Start Game</button>
+                    <button id="reset-button" class="reset-button">Reset Board</button>
+                    <button id="change-map-button" class="change-map-button">Change Map</button>
+                </div>
+            </div>
+
+            <div class="pacman-container">
+                <div class="banner"></div>
+                    <div id="status" class="banner">Welcome to Pac-Man! Press Start Game to begin!</div>
+                <div class="banner"></div>
+                <div class="info-row">
+                    <div id="scoreboard" class="banner-item">Score: 0</div>
+                    <div id="timer" class="banner-item">Time: 0s</div>
+                </div>
+
+                <div class="pacman-grid"></div>
+
+                
+            </div>
+        </div>
+        
+        
+        
+        <!-- todo:
+        1. add leaderboard
+        2. add difficulty levels 
+        
+        -->
+
+        <script src="pacman.js"></script>
+        <br>
+
+    </body>
+</html>
