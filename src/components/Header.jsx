@@ -1,8 +1,14 @@
-import React from 'react'
+import Button from './Button.jsx'
 
-const Header = () => {
+const Header = ({
+    title="Welcome to Henry's Arcade",
+
+}) => {
   return (
-    <div>Header</div>
+    <header className="header">
+        <h1>{title}</h1>
+        <Button color="darkgrey" text="Login" />
+    </header>
   )
 }
 
