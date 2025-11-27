@@ -1,0 +1,78 @@
+/* Full-screen overlay for game playback */
+.gameshell {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  background: var(--app-bg, rgba(0, 0, 0, 0.85));
+  z-index: 9999;
+}
+
+.gameshell__topbar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+}
+
+.gameshell__back {
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  border: 0;
+  background: rgba(255,255,255,0.08);
+  color: white;
+}
+
+.gameshell__title {
+  flex: 1;
+  color: white;
+  font-weight: 700;
+  text-transform: capitalize;
+}
+
+.gameshell__link {
+  color: white;
+  text-decoration: none;
+}
+
+.gameshell__frame-wrapper {
+  flex: 1;
+  min-height: 0; /* so flex child can properly shrink/grow */
+}
+
+.gameshell__iframe {
+  border: none;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* Small responsive adjustments */
+@media (max-width: 640px) {
+  .gameshell__topbar { padding: 10px; gap: 8px; }
+  .gameshell__back { padding: 6px 10px; }
+}
+
+/* NOTE: This stylesheet is intentionally minimal. The game's own CSS (in /public/games/...) should control the game's internal layout.
+   Use GameShell as a viewport container and provide hook/variables if you want to coordinate sizing with the game's CSS (e.g. --game-viewport-height).
+*/
+
+/* ------------------------------------------------------------------
+   Game-specific reference sizes (copied from public/games/* CSS)
+   These are only reference min-heights that match each game's design
+   so the iframe has a sensible minimum viewport. You can remove them
+   or tune values if you make the game pages responsive.
+   ------------------------------------------------------------------ */
+
+.gameshell--blackjack .gameshell__iframe,
+.gameshell--pacman .gameshell__iframe,
+.gameshell--connect-four .gameshell__iframe {
+  min-height: 650px; /* many of the game pages use 650px rows/containers */
+}
+
+.gameshell--tic-tac-toe .gameshell__iframe,
+.gameshell--rock-paper-scissors .gameshell__iframe {
+  min-height: 750px; /* these pages used 750px in their top-level wrapper */
+}
+
