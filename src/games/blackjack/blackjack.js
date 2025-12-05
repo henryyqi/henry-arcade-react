@@ -630,7 +630,7 @@ function clearResetCountdown() {
 
 function updateDisplay(game) {
     // helper to build a card image path and element
-    const cardFileUrl = (card) => `../../../src/assets/blackjack/${encodeURIComponent(card.rank + card.suit)}.png`;
+    const cardFileUrl = (card) => `../src/assets/blackjack/${encodeURIComponent(card.rank + card.suit)}.png`;
     
     // compute effective numeric value for each card in this hand
     // (per-card effective-value logic has been removed) captions will show the card's raw value and suit

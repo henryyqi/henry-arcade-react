@@ -5,23 +5,30 @@ import './gameshell.css';
 function GameShell() {
     const { gameID } = useParams();
     const location = useLocation();
+    const navigate = useNavigate();
+    React.useEffect(() => {
+        // no-op here; navigation for React games handled below in effect when reactGames map applies
+    }, []);
 
-    // Prefer a gamePath passed in navigation state; fall back to known defaults.
-    const defaultPaths = {
-        blackjack: '/games/blackjack/blackjack.html',
-        pacman: '/games/pacman/pacman.html',
-        connectFour: '/games/connect-four/connect_four.html',
-        ticTacToe: '/games/tic-tac-toe/tic_tac_toe.html',
-        rockPaperScissors: '/games/rock-paper-scissors/rock_paper_scissors.html',
+    // Map of React-based games: gameID -> in-SPA route path
+    const reactGames = {
+        blackjack: '/game/react/blackjack',
     };
 
-    const gamePath = location?.state?.gamePath || defaultPaths[gameID];
-
-    const navigate = useNavigate();
+    const gamePath = location?.state?.gamePath;
 
     if (!gamePath) {
         return <h1>Game not found</h1>;
     }
+
+    // If this game has a React component, navigate to the in-SPA route instead
+    React.useEffect(() => {
+        if (reactGames[gameID]) {
+            navigate(reactGames[gameID], { replace: true });
+        }
+    }, [gameID, navigate]);
+
+    if (reactGames[gameID]) return null; // waiting for redirect
 
     // Full-screen overlay so the game's page has a full viewport and doesn't get squashed
     return (
@@ -29,7 +36,6 @@ function GameShell() {
             <div className="gameshell__topbar">
                 <button onClick={() => navigate(-1)} className="gameshell__back">Back</button>
                 <div className="gameshell__title">{gameID}</div>
-                <a href={gamePath} target="_blank" rel="noreferrer" className="gameshell__link">Open in new tab</a>
             </div>
 
             <div className="gameshell__frame-wrapper">

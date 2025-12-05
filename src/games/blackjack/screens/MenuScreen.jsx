@@ -1,8 +1,8 @@
-const MenuScreen = ({ startGame }) => {
+const MenuScreen = ({ onStart }) => {
   return (
     <div className="menu-screen">
         <h1>Blackjack</h1>
-        <button onClick={startGame}>Start Hand</button>
+        <button onClick={onStart}>Start Hand</button>
     </div>
   )
 }

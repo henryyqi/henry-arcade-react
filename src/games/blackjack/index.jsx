@@ -13,14 +13,14 @@ export default function Blackjack() {
         case "play":
             return (
                 <GameplayScreen
-                    onGameEnd={(result) => {
+                    endGame={(result) => {
                         setResults(result);
                         setScreen("results");
                     }}
                 />
             );
         case "results":
-            return <ResultsScreen result={results} onRestart={() => setScreen("menu")} />;
+            return <ResultsScreen result={results} restart={() => setScreen("menu")} />;
         default:
             return <div>Invalid screen</div>;
     }

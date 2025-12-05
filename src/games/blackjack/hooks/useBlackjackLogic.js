@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import { createDeck, dealCard, calculateHandValue } from '../utils/blackjackUtils';
+import { createDeck, dealCard } from './deckUtils';
+import { calculateHandValue } from './blackjackRules';
 
 export function useBlackjackLogic(onEnd) {
     const [deck, setDeck] = useState(createDeck());         // Initialize a new deck

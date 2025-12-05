@@ -9,7 +9,7 @@ const Games = () => {
             id: "blackjack",
             name: "Blackjack",
             thumbnail: "../src/assets/logos/thumbnails/blackjack_thumbnail.png",
-            gamePath: "/games/blackjack/blackjack.html"
+            gamePath: "src/games/blackjack/index.jsx"
         },
         {
             id: "pacman",

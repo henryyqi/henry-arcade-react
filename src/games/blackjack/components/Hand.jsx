@@ -1,4 +1,4 @@
-import Card from "../../../../src/components/UI/Card"
+import Card from "./Card"
 
 const Hand = ({ cards, hideFirstCard }) => {
   return (
